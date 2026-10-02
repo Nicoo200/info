@@ -38,9 +38,11 @@ html {
 ========================================================= */
 
 .hero {
+    position: relative;
+
     width: 100%;
 
-    min-height: 570px;
+    min-height: 620px;
 
     display: flex;
 
@@ -48,20 +50,170 @@ html {
 
     justify-content: center;
 
-    padding: 100px 40px 120px;
+    padding: 100px 40px;
+
+    overflow: hidden;
 
     background:
         radial-gradient(
-            circle at 70% 45%,
+            circle at center,
             rgba(0, 62, 145, 0.12),
-            transparent 40%
+            transparent 55%
         );
 
-    color: var(--branco);
+    color: #ffffff;
 }
 
 
+/* =========================================================
+   CAMADA DOS ÍCONES
+========================================================= */
+
+.hero-icones {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+/* =========================================================
+   ÍCONES
+========================================================= */
+
+.icone-hero {
+    position: absolute;
+
+    object-fit: contain;
+
+    opacity: 0.14;
+
+    user-select: none;
+
+    filter: blur(0.2px);
+
+    animation: flutuarHero 6s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   CHAVE
+========================================================= */
+
+.icone-hero.chave {
+    width: 180px;
+
+    top: 8%;
+
+    left: 7%;
+
+    transform: rotate(-25deg);
+
+    animation-delay: 0s;
+}
+
+
+/* =========================================================
+   CADEADO
+========================================================= */
+
+.icone-hero.cadeado {
+    width: 150px;
+
+    top: 12%;
+
+    right: 8%;
+
+    transform: rotate(20deg);
+
+    animation-delay: -1s;
+}
+
+
+/* =========================================================
+   COFRE
+========================================================= */
+
+.icone-hero.cofre {
+    width: 190px;
+
+    bottom: 5%;
+
+    left: 5%;
+
+    transform: rotate(12deg);
+
+    animation-delay: -2s;
+}
+
+
+/* =========================================================
+   ESCUDO
+========================================================= */
+
+.icone-hero.escudo {
+    width: 180px;
+
+    bottom: 8%;
+
+    right: 6%;
+
+    transform: rotate(-18deg);
+
+    animation-delay: -3s;
+}
+
+
+/* =========================================================
+   SENHA
+========================================================= */
+
+.icone-hero.senha {
+    width: 130px;
+
+    top: 45%;
+
+    left: 18%;
+
+    transform: rotate(18deg);
+
+    animation-delay: -4s;
+}
+
+
+/* =========================================================
+   DISPOSITIVOS
+========================================================= */
+
+.icone-hero.dispositivos {
+    width: 150px;
+
+    top: 42%;
+
+    right: 16%;
+
+    transform: rotate(-15deg);
+
+    animation-delay: -5s;
+}
+
+
+/* =========================================================
+   CONTEÚDO
+========================================================= */
+
 .hero-conteudo {
+    position: relative;
+
+    z-index: 2;
+
     width: 100%;
 
     max-width: 1050px;
@@ -70,10 +222,14 @@ html {
 }
 
 
+/* =========================================================
+   TÍTULO
+========================================================= */
+
 .hero h1 {
     margin: 0;
 
-    color: var(--branco);
+    color: #ffffff;
 
     font-size: clamp(48px, 6vw, 82px);
 
@@ -82,8 +238,15 @@ html {
     line-height: 1.05;
 
     letter-spacing: -2px;
+
+    text-shadow:
+        0 4px 25px rgba(0, 0, 0, 0.25);
 }
 
+
+/* =========================================================
+   DESCRIÇÃO
+========================================================= */
 
 .hero p {
     max-width: 750px;
@@ -97,6 +260,27 @@ html {
     font-weight: 400;
 
     line-height: 1.7;
+}
+
+
+/* =========================================================
+   ANIMAÇÃO DOS ÍCONES
+========================================================= */
+
+@keyframes flutuarHero {
+
+    0% {
+        margin-top: 0;
+    }
+
+    50% {
+        margin-top: -15px;
+    }
+
+    100% {
+        margin-top: 0;
+    }
+
 }
 
 /* =========================================================
@@ -434,6 +618,16 @@ body {
     font-weight: 700;
 }
 
+.icone-topico {
+    width: 110px;
+    height: 110px;
+
+    object-fit: contain;
+
+    display: block;
+
+    margin: 0 auto 20px;
+}
 
 /* Barra azul ao lado dos títulos */
 
@@ -599,9 +793,9 @@ body {
 }  
 
 
+
 /* =========================================================
-   SEÇÃO 4
-   LISTA DOS GERENCIADORES
+   SEÇÃO 4 - GERENCIADORES
 ========================================================= */
 
 .topico4 {
@@ -611,7 +805,11 @@ body {
 
     padding: 30px;
 
-    background-color: var(--azul-fundo);
+    background: linear-gradient(
+        135deg,
+        var(--azul-fundo),
+        var(--azul-marinho)
+    );
 
     border: 1px solid var(--borda);
 
@@ -622,78 +820,89 @@ body {
 }
 
 
-/* Lista */
-
-.topico4 .lista {
-    display: block;
-    margin: 0;
-    
-}
-
+/* =========================================================
+   LISTA DOS GERENCIADORES
+========================================================= */
 
 .topico4 .lista ul {
     list-style: none;
 
-    display: grid;
+    display: flex;
 
-    grid-template-columns: repeat(2, 1fr);
+    flex-direction: column;
 
-    gap: 12px;
+    gap: 14px;
 
     margin: 0;
+
+    padding: 0;
 }
 
 
-/* Links */
-
-.topico4 .lista a {
-    display: block;
-
-    color: inherit;
-
-    text-decoration: none;
-}
-
-
-/* Itens da lista */
+/* =========================================================
+   CADA GERENCIADOR
+========================================================= */
 
 .topico4 .lista li {
-    padding: 14px 18px;
+    width: 100%;
 
-    background-color: var(--azul-fundo);
+    padding: 18px 22px;
 
-    border: 1px solid var(--azul-fundo);
+    background: linear-gradient(
+        135deg,
+        var(--azul-escuro),
+        var(--azul-fundo)
+    );
 
-    border-radius: 8px;
+    border: 1px solid var(--borda);
 
-    color: var(--branco);
-
-    font-weight: 700;
+    border-radius: 10px;
 
     transition:
-        background-color 0.25s ease,
-        border-color 0.25s ease,
-        color 0.25s ease,
         transform 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease,
         box-shadow 0.25s ease;
 }
 
 
-/* Hover */
+/* =========================================================
+   LINK
+========================================================= */
+
+.topico4 .lista a{
+    display: block;
+
+    width: 100%;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 16px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
 
 .topico4 .lista li:hover {
-    background-color: var(--azul);
+    transform: translateX(5px);
+
+    background: linear-gradient(
+        135deg,
+        var(--azul),
+        var(--azul-escuro)
+    );
 
     border-color: var(--azul);
 
-    color: var(--azul-marinho);
-
-    transform: translateX(5px);
-
     box-shadow:
-        0 5px 15px rgba(0, 62, 145, 0.25);
+        0 6px 18px rgba(0, 62, 145, 0.25);
 }
-
 
 /* =========================================================
    AVISO DA SENHA MESTRE
@@ -706,7 +915,7 @@ body {
 
     padding: 18px 20px;
 
-    background-color:  var(--branco);
+    background-color:  #dfdfdf;
 
     border-left: 5px solid var(--azul);
 
@@ -1130,7 +1339,94 @@ body {
         font-size: 14px;
     }
 }
+/* =========================================================
+   RESPONSIVIDADE - CELULARES MOVIMENTAÇÃO ICONES
+========================================================= *
 
+@media (max-width: 600px) {
+
+    .hero {
+        min-height: 550px;
+
+        padding: 80px 25px;
+    }
+
+
+    .icone-hero {
+        opacity: 0.09;
+    }
+
+
+    .icone-hero.chave {
+        width: 100px;
+
+        left: -10px;
+
+        top: 8%;
+    }
+
+
+    .icone-hero.cadeado {
+        width: 90px;
+
+        right: -5px;
+
+        top: 10%;
+    }
+
+
+    .icone-hero.cofre {
+        width: 110px;
+
+        left: -10px;
+
+        bottom: 5%;
+    }
+
+
+    .icone-hero.escudo {
+        width: 110px;
+
+        right: -10px;
+
+        bottom: 5%;
+    }
+
+
+    .icone-hero.senha {
+        width: 80px;
+
+        left: 5%;
+
+        top: 50%;
+    }
+
+
+    .icone-hero.dispositivos {
+        width: 90px;
+
+        right: 5%;
+
+        top: 48%;
+    }
+
+
+    .hero h1 {
+        font-size: 43px;
+
+        line-height: 1.08;
+
+        letter-spacing: -1px;
+    }
+
+
+    .hero p {
+        margin-top: 25px;
+
+        font-size: 16px;
+    }
+
+}
 
 /* =========================================================
    ACESSIBILIDADE / FOCO
