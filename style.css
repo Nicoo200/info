@@ -55,11 +55,9 @@ html {
     overflow: hidden;
 
     background:
-        radial-gradient(
-            circle at center,
+        radial-gradient(circle at center,
             rgba(0, 62, 145, 0.12),
-            transparent 55%
-        );
+            transparent 55%);
 
     color: #ffffff;
 }
@@ -372,11 +370,9 @@ html {
 
     padding: 24px 25px;
 
-    background: linear-gradient(
-        135deg,
-        var(--azul-fundo),
-        var(--azul-marinho)
-    );
+    background: linear-gradient(135deg,
+            var(--azul-fundo),
+            var(--azul-marinho));
 
     border: 1px solid var(--borda);
 
@@ -477,7 +473,7 @@ html {
    CABEÇALHO
 ========================================================= */
 
-body > head {
+body>head {
     display: block;
 
     width: 100%;
@@ -569,74 +565,190 @@ header {
 
 body {
     font-family: 'Montserrat', sans-serif;
-
     /* Fundo geral do site */
     background-color: var(--azul-fundo);
-
     color: var(--texto);
-
     line-height: 1.7;
-
     padding-bottom: 60px;
 }
 
+
+
 /* =========================================================
-   TÍTULOS DAS SEÇÕES
+   TÓPICOS 1, 2 E 3
+========================================================= */
+
+.topico1,
+.topico2,
+.topico3 {
+    position: relative;
+
+    max-width: 1000px;
+
+    margin: 0 auto 30px;
+
+    padding: 32px 35px;
+
+    /* Gradiente seguindo a paleta azul */
+    background: linear-gradient(135deg,
+            var(--azul-fundo),
+            var(--azul-escuro));
+
+    border: 1px solid var(--borda);
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.30);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* =========================================================
+   BRILHO DECORATIVO
+========================================================= */
+
+.topico1::before,
+.topico2::before,
+.topico3::before {
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    top: -120px;
+    right: -70px;
+
+    background-color: var(--azul);
+
+    opacity: 0.08;
+
+    border-radius: 50%;
+
+    filter: blur(55px);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   BARRA LATERAL
+========================================================= */
+
+.topico1::after,
+.topico2::after,
+.topico3::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 25px;
+
+    width: 4px;
+    height: calc(100% - 50px);
+
+    background: linear-gradient(180deg,
+            var(--azul),
+            var(--azul-escuro));
+
+    border-radius: 0 5px 5px 0;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.topico1:hover,
+.topico2:hover,
+.topico3:hover {
+    transform: translateY(-4px);
+
+    border-color: var(--azul);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.40),
+        0 0 20px rgba(0, 62, 145, 0.12);
+}
+
+
+/* =========================================================
+   TEXTO
+========================================================= */
+
+.topico1 p,
+.topico2 p,
+.topico3 p {
+    position: relative;
+
+    z-index: 1;
+
+    margin: 0;
+
+    color: #dfe6f2;
+
+    font-size: 16px;
+
+    line-height: 1.85;
+
+    text-align: justify;
+}
+
+
+/* =========================================================
+   TÍTULOS
 ========================================================= */
 
 .titulo1,
 .titulo2,
 .titulo3,
 .titulo4,
-.titulo5,
-.titulo6 {
+.topico5 {
     max-width: 1000px;
 
-    margin: 45px auto 15px;
+    margin: 50px auto 18px;
 
     padding: 0 25px;
 }
 
 
-/* Título */
-
 .titulo1 h3,
 .titulo2 h3,
 .titulo3 h3,
 .titulo4 h3,
-.titulo5 h3,
-.titulo6 h3 {
+.topico5 h3 {
     position: relative;
 
     padding-left: 18px;
 
-    /* Branco para aparecer sobre o fundo preto */
     color: var(--branco);
 
     font-size: 24px;
 
     font-weight: 700;
+
+    line-height: 1.4;
 }
 
-.icone-topico {
-    width: 110px;
-    height: 110px;
 
-    object-fit: contain;
-
-    display: block;
-
-    margin: 0 auto 20px;
-}
-
-/* Barra azul ao lado dos títulos */
+/* =========================================================
+   BARRA AZUL DOS TÍTULOS
+========================================================= */
 
 .titulo1 h3::before,
 .titulo2 h3::before,
 .titulo3 h3::before,
 .titulo4 h3::before,
-.titulo5 h3::before,
-.titulo6 h3::before {
+.titulo5 h3::before {
     content: "";
 
     position: absolute;
@@ -645,73 +757,17 @@ body {
     top: 4px;
 
     width: 5px;
-    height: 28px;
+    height: 29px;
 
-    background-color: var(--azul);
+    background: linear-gradient(180deg,
+            var(--azul),
+            var(--azul-escuro));
 
     border-radius: 5px;
+
+    box-shadow:
+        0 0 12px rgba(0, 62, 145, 0.45);
 }
-
-
-/* =========================================================
-   BLOCOS DE TEXTO
-========================================================= */
-
-.topico1,
-.topico2,
-.topico3,
-.topico6 {
-    max-width: 1000px;
-
-    margin: 0 auto 25px;
-
-    padding: 28px 30px;
-
-    background: linear-gradient(
-        135deg,
-        var(--azul-escuro),
-        var(--azul-marinho)
-    );
-
-    border: 1px solid var(--borda);
-
-    border-radius: 12px;
-
-    box-shadow: 0 5px 18px rgba(4, 22, 66, 0.18);
-
-    text-align: justify;
-
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        border-color 0.25s ease;
-}
-
-
-/* Hover dos blocos */
-
-.topico1:hover,
-.topico2:hover,
-.topico3:hover,
-.topico6:hover {
-    transform: translateY(-3px);
-
-    border-color: var(--azul);
-
-    box-shadow: 0 10px 25px rgba(0, 62, 145, 0.18);
-}
-
-
-/* Texto */
-
-.topico1 p,
-.topico2 p,
-.topico3 p,
-.topico6 p {
-    font-size: 16px;
-    color: var(--branco);
-}
-
 
 /* =========================================================
    ÁREA DO VÍDEO
@@ -726,11 +782,9 @@ body {
 
     padding: 35px;
 
-    background: linear-gradient(
-        135deg,
-        var(--azul-marinho),
-        var(--azul-fundo)
-    );
+    background: linear-gradient(135deg,
+            var(--azul-marinho),
+            var(--azul-fundo));
 
     border: 1px solid var(--azul-escuro);
 
@@ -790,7 +844,7 @@ body {
 
     box-shadow:
         0 8px 25px rgba(0, 0, 0, 0.35);
-}  
+}
 
 
 
@@ -805,11 +859,9 @@ body {
 
     padding: 30px;
 
-    background: linear-gradient(
-        135deg,
-        var(--azul-fundo),
-        var(--azul-marinho)
-    );
+    background: linear-gradient(135deg,
+            var(--azul-fundo),
+            var(--azul-marinho));
 
     border: 1px solid var(--borda);
 
@@ -848,11 +900,9 @@ body {
 
     padding: 18px 22px;
 
-    background: linear-gradient(
-        135deg,
-        var(--azul-escuro),
-        var(--azul-fundo)
-    );
+    background: linear-gradient(135deg,
+            var(--azul-escuro),
+            var(--azul-fundo));
 
     border: 1px solid var(--borda);
 
@@ -870,7 +920,7 @@ body {
    LINK
 ========================================================= */
 
-.topico4 .lista a{
+.topico4 .lista a {
     display: block;
 
     width: 100%;
@@ -892,11 +942,9 @@ body {
 .topico4 .lista li:hover {
     transform: translateX(5px);
 
-    background: linear-gradient(
-        135deg,
-        var(--azul),
-        var(--azul-escuro)
-    );
+    background: linear-gradient(135deg,
+            var(--azul),
+            var(--azul-escuro));
 
     border-color: var(--azul);
 
@@ -915,7 +963,7 @@ body {
 
     padding: 18px 20px;
 
-    background-color:  #dfdfdf;
+    background-color: #dfdfdf;
 
     border-left: 5px solid var(--azul);
 
@@ -931,6 +979,28 @@ body {
 /* =========================================================
    TÓPICO 5 - BENEFÍCIOS E CUIDADOS
 ========================================================= */
+
+.titulo5 {
+    max-width: 1000px;
+
+    margin: 50px auto 18px;
+
+    padding: 0 25px;
+}
+
+/* Título */
+
+.titulo5 h3 {
+    position: relative;
+
+    padding-left: 18px;
+
+    color: var(--branco);
+
+    font-size: 24px;
+
+    font-weight: 700;
+}
 
 .introducao-topico5 {
     max-width: 1000px;
@@ -960,11 +1030,9 @@ body {
 
     padding: 35px;
 
-    background: linear-gradient(
-        135deg,
-        var(--azul-fundo),
-        var(--azul-escuro)
-    );
+    background: linear-gradient(135deg,
+            var(--azul-fundo),
+            var(--azul-escuro));
 
     border: 1px solid var(--borda);
 
@@ -1045,23 +1113,6 @@ body {
         box-shadow 0.25s ease;
 }
 
-
-/* =========================================================
-   HOVER DOS BENEFÍCIOS
-========================================================= */
-
-.beneficio:hover {
-    transform: translateX(6px);
-
-    background: rgba(0, 32, 99, 0.70);
-
-    border-color: var(--azul);
-
-    box-shadow:
-        0 8px 22px rgba(0, 62, 145, 0.20);
-}
-
-
 /* =========================================================
    NÚMERO
 ========================================================= */
@@ -1077,11 +1128,9 @@ body {
     align-items: center;
     justify-content: center;
 
-    background: linear-gradient(
-        135deg,
-        var(--azul),
-        var(--azul-escuro)
-    );
+    background: linear-gradient(135deg,
+            var(--azul),
+            var(--azul-escuro));
 
     border: 1px solid var(--azul);
 
@@ -1213,11 +1262,9 @@ body {
 
     padding: 22px;
 
-    background: linear-gradient(
-        135deg,
-        rgba(4, 22, 66, 0.90),
-        rgba(0, 32, 99, 0.65)
-    );
+    background: linear-gradient(135deg,
+            rgba(4, 22, 66, 0.90),
+            rgba(0, 32, 99, 0.65));
 
     border: 1px solid var(--azul);
 
@@ -1343,11 +1390,9 @@ body {
     width: 5px;
     height: 28px;
 
-    background: linear-gradient(
-        180deg,
-        var(--azul),
-        var(--azul-escuro)
-    );
+    background: linear-gradient(180deg,
+            var(--azul),
+            var(--azul-escuro));
 
     border-radius: 5px;
 
@@ -1369,12 +1414,10 @@ body {
 
     padding: 42px 45px;
 
-    background: linear-gradient(
-        135deg,
-        var(--azul-escuro),
-        var(--azul-fundo),
-        #041642
-    );
+    background: linear-gradient(135deg,
+            var(--azul-escuro),
+            var(--azul-fundo),
+            #041642);
 
     border: 1px solid var(--azul);
 
@@ -1422,26 +1465,24 @@ body {
 
 /* Segundo brilho */
 
+
+
 .topico6::after {
     content: "";
 
     position: absolute;
 
-    width: 180px;
-    height: 180px;
+    left: 0;
+    top: 25px;
 
-    bottom: -100px;
-    left: -60px;
+    width: 4px;
+    height: calc(100% - 50px);
 
-    background-color: var(--azul-escuro);
+    background: linear-gradient(180deg,
+            var(--azul),
+            var(--azul-escuro));
 
-    opacity: 0.35;
-
-    border-radius: 50%;
-
-    filter: blur(50px);
-
-    pointer-events: none;
+    border-radius: 0 5px 5px 0;
 }
 
 
@@ -1496,11 +1537,9 @@ body {
 
     margin-top: 25px;
 
-    background: linear-gradient(
-        90deg,
-        var(--azul),
-        var(--azul-escuro)
-    );
+    background: linear-gradient(90deg,
+            var(--azul),
+            var(--azul-escuro));
 
     border-radius: 5px;
 }
@@ -1512,10 +1551,12 @@ body {
 
 @media (max-width: 900px) {
 
-    body > head {
+    body>head {
         padding: 20px 30px;
     }
 
+
+    /* Títulos */
 
     .titulo1,
     .titulo2,
@@ -1526,6 +1567,8 @@ body {
         margin-top: 35px;
     }
 
+
+    /* Cards */
 
     .topico1,
     .topico2,
@@ -1539,13 +1582,15 @@ body {
     }
 
 
-    .titulo5 + p {
-        margin-left: 20px;
+    /* Introdução do tópico 5 */
 
+    .introducao-topico5 {
+        margin-left: 20px;
         margin-right: 20px;
 
         padding: 0;
     }
+
 }
 
 
@@ -1555,21 +1600,75 @@ body {
 
 @media (max-width: 600px) {
 
+
     body {
         font-size: 15px;
     }
 
 
-    /* Cabeçalho */
+    /* =====================================================
+   HEADER - CELULAR
+===================================================== */
 
-    body > head {
+    header {
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        justify-content: center;
+
+        gap: 18px;
+
+        padding: 20px 15px;
+    }
+
+
+    /* Logo */
+
+    .logo {
+        font-size: 24px;
+
+        text-align: center;
+    }
+
+
+    /* Menu */
+
+    .menu {
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        gap: 20px;
+
+        width: 100%;
+    }
+
+
+    .menu a {
+        font-size: 13px;
+
+        white-space: nowrap;
+    }
+
+    /* =====================================================
+       CABEÇALHO
+    ===================================================== */
+
+    body>head {
         padding: 18px 20px;
 
         font-size: 23px;
     }
 
 
-    /* Títulos */
+    /* =====================================================
+       TÍTULOS
+    ===================================================== */
 
     .titulo1,
     .titulo2,
@@ -1609,7 +1708,9 @@ body {
     }
 
 
-    /* Cards */
+    /* =====================================================
+       CARDS
+    ===================================================== */
 
     .topico1,
     .topico2,
@@ -1621,13 +1722,17 @@ body {
 
         margin-right: 15px;
 
+        margin-bottom: 25px;
+
         padding: 20px;
 
-        border-radius: 10px;
+        border-radius: 12px;
     }
 
 
-    /* Texto */
+    /* =====================================================
+       TEXTOS DOS TÓPICOS 1, 2, 3 E 6
+    ===================================================== */
 
     .topico1 p,
     .topico2 p,
@@ -1635,11 +1740,30 @@ body {
     .topico6 p {
         font-size: 14px;
 
+        line-height: 1.75;
+
         text-align: left;
     }
 
 
-    /* Vídeo */
+    /* =====================================================
+       BARRA LATERAL DOS TÓPICOS 1, 2 E 3
+    ===================================================== */
+
+    .topico1::after,
+    .topico2::after,
+    .topico3::after {
+        top: 20px;
+
+        height: calc(100% - 40px);
+
+        width: 3px;
+    }
+
+
+    /* =====================================================
+       VÍDEO
+    ===================================================== */
 
     .video {
         min-height: 200px;
@@ -1657,7 +1781,9 @@ body {
     }
 
 
-    /* Lista */
+    /* =====================================================
+       TÓPICO 4 - LISTA
+    ===================================================== */
 
     .topico4 .lista ul {
         grid-template-columns: 1fr;
@@ -1669,54 +1795,103 @@ body {
     }
 
 
-    /* Aviso */
 
-    .topico4 .aviso {
-        font-size: 13px;
+    /* =====================================================
+       TÓPICO 5 - BENEFÍCIOS
+    ===================================================== */
 
-        padding: 15px;
-    }
-
-
-    /* Benefícios */
-
-    .titulo5 + p {
+    .introducao-topico5 {
         margin-left: 20px;
 
         margin-right: 20px;
 
+        padding: 0;
+
         font-size: 14px;
     }
 
 
-    .topico5 > ul > li {
-        padding: 16px 15px 16px 45px;
+    .topico5 {
+        margin-left: 15px;
 
-        font-size: 14px;
+        margin-right: 15px;
+
+        padding: 20px;
+
+        border-radius: 12px;
+    }
+
+
+    .beneficio {
+        gap: 14px;
+
+        padding: 16px;
+    }
+
+
+    .beneficio-numero {
+        width: 40px;
+
+        height: 40px;
+
+        font-size: 12px;
+    }
+
+
+    .beneficio-conteudo h4 {
+        font-size: 15px;
+    }
+
+
+    .beneficio-conteudo p {
+        font-size: 13px;
     }
 
 
     /* Cuidados */
 
-    .topico5 h3 {
+    .cuidados {
+        margin-top: 30px;
+
+        padding-top: 25px;
+    }
+
+
+    .cuidados-titulo h3 {
         font-size: 18px;
     }
 
 
-    .topico5 h3 + p {
-        font-size: 14px;
+    .cuidado-principal {
+        gap: 12px;
+
+        padding: 17px;
     }
 
 
-    .topico5 h3 + p + ul li {
-        font-size: 14px;
-    }
-}
-/* =========================================================
-   RESPONSIVIDADE - CELULARES MOVIMENTAÇÃO ICONES
-========================================================= */
+    .cuidado-icone {
+        width: 32px;
 
-@media (max-width: 600px) {
+        height: 32px;
+
+        font-size: 17px;
+    }
+
+
+    .cuidado-principal h4 {
+        font-size: 15px;
+    }
+
+
+    .cuidado-principal p,
+    .cuidados-final {
+        font-size: 13px;
+    }
+
+
+    /* =====================================================
+       MOVIMENTAÇÃO DOS ÍCONES DA ABERTURA
+    ===================================================== */
 
     .hero {
         min-height: 550px;
@@ -1784,6 +1959,10 @@ body {
     }
 
 
+    /* =====================================================
+       TEXTO DA ABERTURA
+    ===================================================== */
+
     .hero h1 {
         font-size: 43px;
 
@@ -1800,6 +1979,7 @@ body {
     }
 
 }
+
 
 /* =========================================================
    ACESSIBILIDADE / FOCO
