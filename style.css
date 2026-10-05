@@ -1377,6 +1377,10 @@ body {
     line-height: 1.7;
 }
 
+.cuidados-final a{
+    color: var(--branco)
+   
+}
 
 /* =========================================================
    TÓPICO 6 - CONCLUSÃO
